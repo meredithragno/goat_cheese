@@ -24,7 +24,7 @@
           Regions
         </label>
 
-        <input type="text" id="regions_id" name="regions_id" placeholder="Regions" class="form-control" value="<%= @producer.regions_id %>">
+        <%= select_tag(:regions_id, options_from_collection_for_select(Region.all, :id, :created_at, @producer.regions_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for name -->
