@@ -1,4 +1,6 @@
 ActiveAdmin.register Tasting do
+
+ permit_params :cheeses_id, :user_id, :location, :notes, :producers_id, :rating
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
