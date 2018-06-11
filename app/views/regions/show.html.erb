@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Region has many producers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Producers
+      </li>
+
+      <% @region.producers.each do |producer| %>
+        <li class="list-group-item">
+          <a href="/producers/<%= producer.id %>">
+            <%= producer.regions_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/producers/<%= producer.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/producers/<%= producer.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_producer/<%= producer.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Region has many cheeses -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Cheeses
+      </li>
+
+      <% @region.cheeses.each do |cheese| %>
+        <li class="list-group-item">
+          <a href="/cheeses/<%= cheese.id %>">
+            <%= cheese.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/cheeses/<%= cheese.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/cheeses/<%= cheese.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_cheese/<%= cheese.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

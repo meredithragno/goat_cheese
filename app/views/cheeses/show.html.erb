@@ -38,3 +38,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Cheese has many tastings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Tastings
+      </li>
+
+      <% @cheese.tastings.each do |tasting| %>
+        <li class="list-group-item">
+          <a href="/tastings/<%= tasting.id %>">
+            <%= tasting.cheeses_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/tastings/<%= tasting.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/tastings/<%= tasting.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_tasting/<%= tasting.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cheese has many users -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Users
+      </li>
+
+      <% @cheese.users.each do |user| %>
+        <li class="list-group-item">
+          <a href="/users/<%= user.id %>">
+            <%= user.email %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/users/<%= user.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cheese has many regions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Regions
+      </li>
+
+      <% @cheese.regions.each do |region| %>
+        <li class="list-group-item">
+          <a href="/regions/<%= region.id %>">
+            <%= region.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/regions/<%= region.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/regions/<%= region.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_region/<%= region.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Cheese has many producers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Producers
+      </li>
+
+      <% @cheese.producers.each do |producer| %>
+        <li class="list-group-item">
+          <a href="/producers/<%= producer.id %>">
+            <%= producer.regions_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/producers/<%= producer.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/producers/<%= producer.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_producer/<%= producer.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
