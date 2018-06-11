@@ -10,7 +10,8 @@ class TastingsController < ApplicationController
   end
 
   def index
-    @tastings = Tasting.page(params[:page]).per(10)
+    @q = Tasting.ransack(params[:q])
+    @tastings = @q.result(:distinct => true).includes(:user, :cheeses, :producers).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@tastings.where.not(:location_latitude => nil)) do |tasting, marker|
       marker.lat tasting.location_latitude
       marker.lng tasting.location_longitude

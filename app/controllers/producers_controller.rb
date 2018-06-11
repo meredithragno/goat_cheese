@@ -1,6 +1,7 @@
 class ProducersController < ApplicationController
   def index
-    @producers = Producer.page(params[:page]).per(10)
+    @q = Producer.ransack(params[:q])
+    @producers = @q.result(:distinct => true).includes(:regions, :tastings, :cheeses).page(params[:page]).per(10)
 
     render("producers/index.html.erb")
   end

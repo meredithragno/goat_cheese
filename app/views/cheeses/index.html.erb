@@ -3,6 +3,148 @@
     Cheeses
     <a href="/cheeses/new" class="btn btn-lg btn-success">New Cheese</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "cheeses_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :producers_id, "Producers" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :producers_id_gteq, :class => "form-control", :placeholder => "Producers greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :producers_id_lteq, :class => "form-control", :placeholder => "Producers less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :regions_id, "Regions" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :regions_id_gteq, :class => "form-control", :placeholder => "Regions greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :regions_id_lteq, :class => "form-control", :placeholder => "Regions less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :variety_cont, "Variety contains" %>
+    <%= f.text_field :variety_cont, :class => "form-control", :placeholder => "Variety contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :age_cont, "Age contains" %>
+    <%= f.text_field :age_cont, :class => "form-control", :placeholder => "Age contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :milk_cont, "Milk contains" %>
+    <%= f.text_field :milk_cont, :class => "form-control", :placeholder => "Milk contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :users_email_cont, "User email contains" %>
+      <%= f.text_field :users_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Region Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='regionsgteqcreated_atPicker'>
+                  <%= f.text_field :regions_created_at_gteq, :class => "form-control", :placeholder => "Region Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='regionslteqcreated_atPicker'>
+                  <%= f.text_field :regions_created_at_lteq, :class => "form-control", :placeholder => "Region Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#regionsgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#regionslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#regionsgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#regionslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#regionslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#regionsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/cheeses" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#cheeses_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

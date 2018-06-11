@@ -1,6 +1,7 @@
 class RegionsController < ApplicationController
   def index
-    @regions = Region.page(params[:page]).per(10)
+    @q = Region.ransack(params[:q])
+    @regions = @q.result(:distinct => true).includes(:producers, :cheeses).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@regions.where.not(:address_latitude => nil)) do |region, marker|
       marker.lat region.address_latitude
       marker.lng region.address_longitude

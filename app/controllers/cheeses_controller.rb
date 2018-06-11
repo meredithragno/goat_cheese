@@ -1,6 +1,7 @@
 class CheesesController < ApplicationController
   def index
-    @cheeses = Cheese.page(params[:page]).per(10)
+    @q = Cheese.ransack(params[:q])
+    @cheeses = @q.result(:distinct => true).includes(:tastings, :users, :regions, :producers).page(params[:page]).per(10)
 
     render("cheeses/index.html.erb")
   end
