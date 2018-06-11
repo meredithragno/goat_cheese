@@ -7,6 +7,10 @@ class Cheese < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :tastings,
+             :source => :user
+
   # Validations
 
 end

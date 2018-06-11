@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :cheeses,
+             :through => :tastings,
+             :source => :cheeses
+
   # Validations
 
   # Include default devise modules. Others available are:
