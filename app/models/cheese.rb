@@ -7,6 +7,10 @@ class Cheese < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :regions,
+             :through => :producers,
+             :source => :regions
+
   has_many   :users,
              :through => :tastings,
              :source => :user

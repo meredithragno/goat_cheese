@@ -7,6 +7,10 @@ class Region < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :cheeses,
+             :through => :producers,
+             :source => :cheeses
+
   # Validations
 
 end
