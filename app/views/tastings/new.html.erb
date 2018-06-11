@@ -60,7 +60,7 @@
           Producers
         </label>
 
-        <input type="text" id="producers_id" name="producers_id" placeholder="Producers" class="form-control" value="<%= @tasting.producers_id %>">
+        <%= select_tag(:producers_id, options_from_collection_for_select(Producer.all, :id, :regions_id, @tasting.producers_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for rating -->
