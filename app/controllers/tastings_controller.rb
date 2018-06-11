@@ -11,6 +11,11 @@ class TastingsController < ApplicationController
 
   def index
     @tastings = Tasting.all
+    @location_hash = Gmaps4rails.build_markers(@tastings.where.not(:location_latitude => nil)) do |tasting, marker|
+      marker.lat tasting.location_latitude
+      marker.lng tasting.location_longitude
+      marker.infowindow "<h5><a href='/tastings/#{tasting.id}'>#{tasting.cheeses_id}</a></h5><small>#{tasting.location_formatted_address}</small>"
+    end
 
     render("tastings/index.html.erb")
   end
