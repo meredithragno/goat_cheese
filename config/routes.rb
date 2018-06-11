@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Region resource:
+  # CREATE
+  get "/regions/new", :controller => "regions", :action => "new"
+  post "/create_region", :controller => "regions", :action => "create"
+
+  # READ
+  get "/regions", :controller => "regions", :action => "index"
+  get "/regions/:id", :controller => "regions", :action => "show"
+
+  # UPDATE
+  get "/regions/:id/edit", :controller => "regions", :action => "edit"
+  post "/update_region/:id", :controller => "regions", :action => "update"
+
+  # DELETE
+  get "/delete_region/:id", :controller => "regions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Cheese resource:
   # CREATE
   get "/cheeses/new", :controller => "cheeses", :action => "new"
