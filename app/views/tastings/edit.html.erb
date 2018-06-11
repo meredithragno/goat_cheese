@@ -24,7 +24,7 @@
           Cheeses
         </label>
 
-        <input type="text" id="cheeses_id" name="cheeses_id" placeholder="Cheeses" class="form-control" value="<%= @tasting.cheeses_id %>">
+        <%= select_tag(:cheeses_id, options_from_collection_for_select(Cheese.all, :id, :name, @tasting.cheeses_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
