@@ -10,6 +10,10 @@ class Producer < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :cheeses,
+             :through => :tastings,
+             :source => :cheeses
+
   # Validations
 
 end
