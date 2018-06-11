@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Producer resource:
+  # CREATE
+  get "/producers/new", :controller => "producers", :action => "new"
+  post "/create_producer", :controller => "producers", :action => "create"
+
+  # READ
+  get "/producers", :controller => "producers", :action => "index"
+  get "/producers/:id", :controller => "producers", :action => "show"
+
+  # UPDATE
+  get "/producers/:id/edit", :controller => "producers", :action => "edit"
+  post "/update_producer/:id", :controller => "producers", :action => "update"
+
+  # DELETE
+  get "/delete_producer/:id", :controller => "producers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Region resource:
   # CREATE
   get "/regions/new", :controller => "regions", :action => "new"
