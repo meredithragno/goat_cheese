@@ -1,6 +1,9 @@
 class Tasting < ApplicationRecord
   # Direct associations
 
+  belongs_to :cheeses,
+             :class_name => "Cheese"
+
   belongs_to :user,
              :counter_cache => true
 
