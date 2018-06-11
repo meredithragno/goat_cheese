@@ -29,11 +29,29 @@
 
       <% @tastings.each do |tasting| %>
       <tr>
-        <td><%= tasting.cheeses.name %></td>
-        <td><%= tasting.user.email %></td>
+        <td>
+          <% if tasting.cheeses.present? %>
+            <a href="/cheeses/<%= tasting.cheeses.id %>">
+              <%= tasting.cheeses.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if tasting.user.present? %>
+            <a href="/users/<%= tasting.user.id %>">
+              <%= tasting.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= tasting.location %></td>
         <td><%= tasting.notes %></td>
-        <td><%= tasting.producers.regions_id %></td>
+        <td>
+          <% if tasting.producers.present? %>
+            <a href="/producers/<%= tasting.producers.id %>">
+              <%= tasting.producers.regions_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= tasting.rating %></td>
         <td>
           <a href="/tastings/<%= tasting.id %>" class="btn btn-primary">Show</a>

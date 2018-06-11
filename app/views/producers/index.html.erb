@@ -16,7 +16,13 @@
 
       <% @producers.each do |producer| %>
       <tr>
-        <td><%= producer.regions.created_at %></td>
+        <td>
+          <% if producer.regions.present? %>
+            <a href="/regions/<%= producer.regions.id %>">
+              <%= producer.regions.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= producer.name %></td>
         <td>
           <a href="/producers/<%= producer.id %>" class="btn btn-primary">Show</a>

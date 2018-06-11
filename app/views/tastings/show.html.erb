@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Cheeses</dt>
-      <dd><%= @tasting.cheeses_id %></dd>
+      <dd>
+        <% if @tasting.cheeses.present? %>
+          <a href="/cheeses/<%= @tasting.cheeses_id %>">
+            <%= @tasting.cheeses.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @tasting.user_id %></dd>
+      <dd>
+        <% if @tasting.user.present? %>
+          <a href="/users/<%= @tasting.user_id %>">
+            <%= @tasting.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Location</dt>
       <dd>
@@ -22,7 +34,13 @@
       <dd><%= @tasting.notes %></dd>
 
       <dt>Producers</dt>
-      <dd><%= @tasting.producers_id %></dd>
+      <dd>
+        <% if @tasting.producers.present? %>
+          <a href="/producers/<%= @tasting.producers_id %>">
+            <%= @tasting.producers.regions_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Rating</dt>
       <dd><%= @tasting.rating %></dd>
