@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Cheese #<%= @cheese.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @cheese.name %></dd>
+
+      <dt>Milk</dt>
+      <dd><%= @cheese.milk %></dd>
+
+      <dt>Age</dt>
+      <dd><%= @cheese.age %></dd>
+
+      <dt>Variety</dt>
+      <dd><%= @cheese.variety %></dd>
+
+      <dt>Regions</dt>
+      <dd><%= @cheese.regions_id %></dd>
+
+      <dt>Producers</dt>
+      <dd><%= @cheese.producers_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/cheeses" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/cheeses/<%= @cheese.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_cheese/<%= @cheese.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

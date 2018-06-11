@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @cheese.errors.any? %>
+  <% @cheese.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Cheese</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_cheese" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @cheese.name %>">
+      </div>
+
+      <!-- Label and input for milk -->
+      <div class="form-group">
+        <label for="milk" class="control-label">
+          Milk
+        </label>
+
+        <input type="text" id="milk" name="milk" placeholder="Milk" class="form-control" value="<%= @cheese.milk %>">
+      </div>
+
+      <!-- Label and input for age -->
+      <div class="form-group">
+        <label for="age" class="control-label">
+          Age
+        </label>
+
+        <input type="text" id="age" name="age" placeholder="Age" class="form-control" value="<%= @cheese.age %>">
+      </div>
+
+      <!-- Label and input for variety -->
+      <div class="form-group">
+        <label for="variety" class="control-label">
+          Variety
+        </label>
+
+        <input type="text" id="variety" name="variety" placeholder="Variety" class="form-control" value="<%= @cheese.variety %>">
+      </div>
+
+      <!-- Label and input for regions_id -->
+      <div class="form-group">
+        <label for="regions_id" class="control-label">
+          Regions
+        </label>
+
+        <input type="text" id="regions_id" name="regions_id" placeholder="Regions" class="form-control" value="<%= @cheese.regions_id %>">
+      </div>
+
+      <!-- Label and input for producers_id -->
+      <div class="form-group">
+        <label for="producers_id" class="control-label">
+          Producers
+        </label>
+
+        <input type="text" id="producers_id" name="producers_id" placeholder="Producers" class="form-control" value="<%= @cheese.producers_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Cheese
+      </button>
+      or
+      <a href="/cheeses">Cancel</a>
+    </form>
+  </div>
+</div>

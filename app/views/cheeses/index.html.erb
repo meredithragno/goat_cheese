@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Cheeses
+    <a href="/cheeses/new" class="btn btn-lg btn-success">New Cheese</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Milk</th>
+        <th>Age</th>
+        <th>Variety</th>
+        <th>Regions</th>
+        <th>Producers</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @cheeses.each do |cheese| %>
+      <tr>
+        <td><%= cheese.name %></td>
+        <td><%= cheese.milk %></td>
+        <td><%= cheese.age %></td>
+        <td><%= cheese.variety %></td>
+        <td><%= cheese.regions_id %></td>
+        <td><%= cheese.producers_id %></td>
+        <td>
+          <a href="/cheeses/<%= cheese.id %>" class="btn btn-primary">Show</a>
+          <a href="/cheeses/<%= cheese.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_cheese/<%= cheese.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
