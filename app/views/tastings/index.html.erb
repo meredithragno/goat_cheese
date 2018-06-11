@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Tastings
+    <a href="/tastings/new" class="btn btn-lg btn-success">New Tasting</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Cheeses</th>
+        <th>User</th>
+        <th>Location</th>
+        <th>Notes</th>
+        <th>Producers</th>
+        <th>Rating</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @tastings.each do |tasting| %>
+      <tr>
+        <td><%= tasting.cheeses_id %></td>
+        <td><%= tasting.user_id %></td>
+        <td><%= tasting.location %></td>
+        <td><%= tasting.notes %></td>
+        <td><%= tasting.producers_id %></td>
+        <td><%= tasting.rating %></td>
+        <td>
+          <a href="/tastings/<%= tasting.id %>" class="btn btn-primary">Show</a>
+          <a href="/tastings/<%= tasting.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_tasting/<%= tasting.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

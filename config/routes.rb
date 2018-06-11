@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Tasting resource:
+  # CREATE
+  get "/tastings/new", :controller => "tastings", :action => "new"
+  post "/create_tasting", :controller => "tastings", :action => "create"
+
+  # READ
+  get "/tastings", :controller => "tastings", :action => "index"
+  get "/tastings/:id", :controller => "tastings", :action => "show"
+
+  # UPDATE
+  get "/tastings/:id/edit", :controller => "tastings", :action => "edit"
+  post "/update_tasting/:id", :controller => "tastings", :action => "update"
+
+  # DELETE
+  get "/delete_tasting/:id", :controller => "tastings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Producer resource:
   # CREATE
   get "/producers/new", :controller => "producers", :action => "new"

@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @tasting.errors.any? %>
+  <% @tasting.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Tasting</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_tasting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for cheeses_id -->
+      <div class="form-group">
+        <label for="cheeses_id" class="control-label">
+          Cheeses
+        </label>
+
+        <input type="text" id="cheeses_id" name="cheeses_id" placeholder="Cheeses" class="form-control" value="<%= @tasting.cheeses_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @tasting.user_id %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @tasting.location %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @tasting.notes %></textarea>
+      </div>
+
+      <!-- Label and input for producers_id -->
+      <div class="form-group">
+        <label for="producers_id" class="control-label">
+          Producers
+        </label>
+
+        <input type="text" id="producers_id" name="producers_id" placeholder="Producers" class="form-control" value="<%= @tasting.producers_id %>">
+      </div>
+
+      <!-- Label and input for rating -->
+      <div class="form-group">
+        <label for="rating" class="control-label">
+          Rating
+        </label>
+
+        <input type="text" id="rating" name="rating" placeholder="Rating" class="form-control" value="<%= @tasting.rating %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Tasting
+      </button>
+      or
+      <a href="/tastings">Cancel</a>
+    </form>
+  </div>
+</div>
