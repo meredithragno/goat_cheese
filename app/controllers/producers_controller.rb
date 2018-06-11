@@ -6,6 +6,7 @@ class ProducersController < ApplicationController
   end
 
   def show
+    @tasting = Tasting.new
     @producer = Producer.find(params[:id])
 
     render("producers/show.html.erb")

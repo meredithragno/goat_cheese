@@ -6,6 +6,7 @@ class RegionsController < ApplicationController
   end
 
   def show
+    @producer = Producer.new
     @region = Region.find(params[:id])
 
     render("regions/show.html.erb")

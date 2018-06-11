@@ -6,6 +6,7 @@ class CheesesController < ApplicationController
   end
 
   def show
+    @tasting = Tasting.new
     @cheese = Cheese.find(params[:id])
 
     render("cheeses/show.html.erb")

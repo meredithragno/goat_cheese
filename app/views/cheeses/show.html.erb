@@ -66,6 +66,65 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_tasting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for cheeses_id -->
+      <div class="form-group">
+        <label for="cheeses_id" class="control-label">
+          Cheeses
+        </label>
+
+        <%= select_tag(:cheeses_id, options_from_collection_for_select(Cheese.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for producers_id -->
+      <div class="form-group">
+        <label for="producers_id" class="control-label">
+          Producers
+        </label>
+
+        <%= select_tag(:producers_id, options_from_collection_for_select(Producer.all, :id, :regions_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for rating -->
+      <div class="form-group">
+        <label for="rating" class="control-label">
+          Rating
+        </label>
+
+        <input type="text" id="rating" name="rating" placeholder="Rating" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Tasting
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
