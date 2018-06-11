@@ -20,7 +20,7 @@
 
       <% @tastings.each do |tasting| %>
       <tr>
-        <td><%= tasting.cheeses_id %></td>
+        <td><%= tasting.cheeses.name %></td>
         <td><%= tasting.user_id %></td>
         <td><%= tasting.location %></td>
         <td><%= tasting.notes %></td>
