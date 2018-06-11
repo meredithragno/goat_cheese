@@ -1,6 +1,9 @@
 class Tasting < ApplicationRecord
   # Direct associations
 
+  belongs_to :producers,
+             :class_name => "Producer"
+
   belongs_to :cheeses,
              :class_name => "Cheese"
 
