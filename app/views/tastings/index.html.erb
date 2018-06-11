@@ -28,8 +28,11 @@
         <td><%= tasting.rating %></td>
         <td>
           <a href="/tastings/<%= tasting.id %>" class="btn btn-primary">Show</a>
-          <a href="/tastings/<%= tasting.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_tasting/<%= tasting.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == tasting.user %>
+            <a href="/tastings/<%= tasting.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_tasting/<%= tasting.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

@@ -1,4 +1,14 @@
 class TastingsController < ApplicationController
+  before_action :current_user_must_be_tasting_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_tasting_user
+    tasting = Tasting.find(params[:id])
+
+    unless current_user == tasting.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @tastings = Tasting.all
 
