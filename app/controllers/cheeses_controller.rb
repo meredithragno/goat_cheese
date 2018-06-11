@@ -1,6 +1,6 @@
 class CheesesController < ApplicationController
   def index
-    @cheeses = Cheese.all
+    @cheeses = Cheese.page(params[:page]).per(10)
 
     render("cheeses/index.html.erb")
   end
